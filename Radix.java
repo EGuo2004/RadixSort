@@ -1,6 +1,6 @@
 public class Radix{
   public static int nth(int n, int col) {
-    if(col > length(n)) {
+    if(col >= length(n)) {
       throw new IndexOutOfBoundsException("Index Out Of Bounds");
     }
     if (col == 0) {
@@ -13,5 +13,11 @@ public class Radix{
 
   public static int length(int n) {
     return Math.ceil(Math.log10(n));
+  }
+
+  public static void merge( SortableLinkedList original, SortableLinkedList[]buckets){
+    for(int i = 0; i < buckets.length; i++) {
+      original.extend(buckets[i]);
+    }
   }
 }
