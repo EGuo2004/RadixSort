@@ -31,6 +31,15 @@ public class Radix{
 
   public static void radixSort(SortableLinkedList data) {
     SortableLinkedList positives = new SortableLinkedList();
+    int size = data.size();
+    for (int i = 0; i < size; i++) {
+      int x = data.remove(x);
+      if(x >= 0) {
+        positives.add(x);
+      } else {
+        data.add(x);
+      }
+    }
   }
 
   private static int maxDigits(SortableLinkedList data) {
