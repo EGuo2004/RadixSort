@@ -33,7 +33,7 @@ public class Radix{
     SortableLinkedList positives = new SortableLinkedList();
     int size = data.size();
     for (int i = 0; i < size; i++) {
-      int x = data.remove(x);
+      int x = data.remove(i);
       if(x >= 0) {
         positives.add(x);
       } else {
