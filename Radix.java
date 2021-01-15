@@ -30,15 +30,23 @@ public class Radix{
   }
 
   public static void radixSort(SortableLinkedList data) {
-    SortableLinkedList positives = new SortableLinkedList();
+    SortableLinkedList pos = new SortableLinkedList();
+    SortableLinkedList neg = new SortableLinkedList();
     int size = data.size();
     for (int i = 0; i < size; i++) {
       int x = data.remove(i);
       if(x >= 0) {
-        positives.add(x);
+        pos.add(x);
       } else {
-        data.add(x);
+        neg.add(x);
       }
+    }
+    radixSortSimple(pos);
+    radixSortSimple(neg);
+    data.extend(pos);
+    while(neg.size() > 0) {
+      int a = neg.remove(0);
+      data.add(0, a);
     }
   }
 
